@@ -65,7 +65,7 @@ Tap the **Σ** icon (top right) to show or hide the scientific panel.
 ### Run the project
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/<your-repo-name>.git
+   git clone https://github.com/RohaanAhmadQuadri/Calculator.git
    ```
 2. Open the folder in Android Studio with **File > Open**.
 3. Wait for Gradle sync to finish.
