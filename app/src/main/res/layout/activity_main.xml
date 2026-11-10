@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Top bar: Sci toggle + History (top right) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnSci"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Scientific mode"
+            android:padding="12dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_sci" />
+
+        <ImageButton
+            android:id="@+id/btnHistory"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="History"
+            android:padding="12dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_history" />
+    </LinearLayout>
+
+    <!-- Display area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="bottom|end"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvExpression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="#9E9E9E"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:autoSizeMaxTextSize="56sp"
+            android:autoSizeMinTextSize="24sp"
+            android:autoSizeTextType="uniform"
+            android:gravity="end"
+            android:maxLines="1"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="56sp" />
+    </LinearLayout>
+
+    <!-- Scientific panel (hidden until you tap "Sci") -->
+    <LinearLayout
+        android:id="@+id/sciPanel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.8"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="sin" android:text="sin" />
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="cos" android:text="cos" />
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="tan" android:text="tan" />
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="π" android:text="π" />
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="e" android:text="e" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="ln" android:text="ln" />
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="log" android:text="log" />
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="√" android:text="√" />
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="²" android:text="x²" />
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="^" android:text="xʸ" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="(" android:text="(" />
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag=")" android:text=")" />
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="!" android:text="n!" />
+            <Button style="@style/CalcButton" android:backgroundTint="#262626" android:textSize="18sp" android:tag="inv" android:text="1/x" />
+            <Button
+                android:id="@+id/btnMode"
+                style="@style/CalcButton"
+                android:backgroundTint="#262626"
+                android:tag="mode"
+                android:text="DEG"
+                android:textColor="#FF9500"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Row 1 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button style="@style/CalcButton.Func" android:tag="AC" android:text="AC" />
+        <Button style="@style/CalcButton.Func" android:tag="DEL" android:text="⌫" />
+        <Button style="@style/CalcButton.Func" android:tag="%" android:text="%" />
+        <Button style="@style/CalcButton.Op" android:tag="÷" android:text="÷" />
+    </LinearLayout>
+
+    <!-- Row 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button style="@style/CalcButton" android:tag="7" android:text="7" />
+        <Button style="@style/CalcButton" android:tag="8" android:text="8" />
+        <Button style="@style/CalcButton" android:tag="9" android:text="9" />
+        <Button style="@style/CalcButton.Op" android:tag="×" android:text="×" />
+    </LinearLayout>
+
+    <!-- Row 3 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button style="@style/CalcButton" android:tag="4" android:text="4" />
+        <Button style="@style/CalcButton" android:tag="5" android:text="5" />
+        <Button style="@style/CalcButton" android:tag="6" android:text="6" />
+        <Button style="@style/CalcButton.Op" android:tag="−" android:text="−" />
+    </LinearLayout>
+
+    <!-- Row 4 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button style="@style/CalcButton" android:tag="1" android:text="1" />
+        <Button style="@style/CalcButton" android:tag="2" android:text="2" />
+        <Button style="@style/CalcButton" android:tag="3" android:text="3" />
+        <Button style="@style/CalcButton.Op" android:tag="+" android:text="+" />
+    </LinearLayout>
+
+    <!-- Row 5 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button style="@style/CalcButton" android:tag="00" android:text="00" />
+        <Button style="@style/CalcButton" android:tag="0" android:text="0" />
+        <Button style="@style/CalcButton" android:tag="." android:text="." />
+        <Button style="@style/CalcButton.Op" android:tag="=" android:text="=" />
+    </LinearLayout>
+
+</LinearLayout>
