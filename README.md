@@ -55,15 +55,6 @@ Tap the **Σ** icon (top right) to show or hide the scientific panel.
 
 ---
 
-## Screenshots
-
-<!-- Add your screenshots to a `screenshots/` folder and update these paths -->
-| Basic | Scientific | History | Math Blitz |
-|:-----:|:----------:|:-------:|:----------:|
-| ![Basic](screenshots/basic.png) | ![Scientific](screenshots/scientific.png) | ![History](screenshots/history.png) | ![Game](screenshots/game.png) |
-
----
-
 ## Getting started
 
 ### Requirements
